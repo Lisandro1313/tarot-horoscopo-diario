@@ -156,3 +156,17 @@ export function getTiradaAleatoria(): { carta: CartaTarot; invertida: boolean } 
   const invertida = Math.random() > 0.7;
   return { carta, invertida };
 }
+
+export function getTiradaTresCartas(): Array<{ carta: CartaTarot; invertida: boolean; posicion: string }> {
+  const posiciones = ['Pasado', 'Presente', 'Futuro'];
+  const indices: number[] = [];
+  while (indices.length < 3) {
+    const idx = Math.floor(Math.random() * ARCANOS_MAYORES.length);
+    if (!indices.includes(idx)) indices.push(idx);
+  }
+  return indices.map((idx, i) => ({
+    carta: ARCANOS_MAYORES[idx],
+    invertida: Math.random() > 0.7,
+    posicion: posiciones[i],
+  }));
+}

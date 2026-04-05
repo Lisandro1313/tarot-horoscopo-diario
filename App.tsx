@@ -4,6 +4,7 @@ import { Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import HoroscopoScreen from './src/screens/HoroscopoScreen';
 import TarotScreen from './src/screens/TarotScreen';
+import NumerologiaScreen from './src/screens/NumerologiaScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,6 +40,18 @@ export default function App() {
           component={TarotScreen}
           options={{
             tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🔮</Text>,
+          }}
+        />
+        <Tab.Screen
+          name="Numerología"
+          component={NumerologiaScreen}
+          options={{
+            tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🔢</Text>,
+            headerShown: true,
+            headerStyle: { backgroundColor: '#0d0d1a' },
+            headerTintColor: '#FFD700',
+            headerTitleStyle: { fontWeight: '700' as const },
+            headerTitle: '🔢 Numerología',
           }}
         />
       </Tab.Navigator>
